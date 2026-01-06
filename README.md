@@ -24,3 +24,4 @@ Grinding resources, buying lootboxes to get premium items and upgrading those it
 - View the mech you're building and the stats for it. (Arena Buffs included)
 - Support for custom item packs, so you try your own items and balance changes.
 - An online battle simulator so you can actually test your mechs.
+- 
