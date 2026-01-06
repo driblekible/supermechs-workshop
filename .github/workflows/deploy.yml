@@ -13,16 +13,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - run: npm install
-      - run: npm run build
+      - name: Install dependencies
+        run: npm install
 
-      # NEW artifact action (replaces deprecated upload-pages-artifact)
+      - name: Build project
+        run: npm run build
+
       - name: Upload build output
         uses: actions/upload-artifact@v4
         with:
@@ -36,7 +40,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # NEW deploy action (replaces deploy-pages@v2)
       - name: Deploy to GitHub Pages
         id: deployment
-
+        uses: actions/deploy-pages@v4
